@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+admin = Admin.create(username: "Bruno", password: "123")
+song = Song.create(title: "Better With You", artist: "SCNE")
+song.image.attach(io: File.open("./db/song_images/CD_Cover.jpg"), filename: "CD_Cover.jpg", content_type: "image/jpg")
+
