@@ -1,10 +1,9 @@
 class Song < ApplicationRecord
     has_one_attached :image
-    # include ActiveModel::Serializers::JSON
+    include Rails.application.routes.url_helpers
 
-    # def attachment_url
-    #     Rails.application.routes.url_helpers.rails_representation_url(
-    #       image.variant(resize_to_limit: [200, 200]).processed, only_path: true
-    #     )
-    #   end
+
+    def image_url
+      return rails_blob_path(self.image, only_path: true)
+    end
 end
