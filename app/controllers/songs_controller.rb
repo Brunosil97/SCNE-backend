@@ -13,15 +13,16 @@ class SongsController < ApplicationController
 
     def create 
         song = Song.create(title: params[:title], artist: params[:artist], spotify: params[:spotify], soundcloud: params[:soundcloud])
-        render json: song
-        byebug
+        render json: song.to_json
+       
     end 
 
     def update 
-        song = Song.find_by(params[:id])
+        # byebug
+        song = Song.find_by(id: params[:id])
         song.update(image: params[:image])
-        image = rails_blob_path(song.image)
-        byebug
-        render json: {song: song, image: image}
+        image_url = rails_blob_path(song.image)
+        
+        render json: {song: song, image_url: image_url}
     end 
 end
