@@ -18,11 +18,14 @@ class SongsController < ApplicationController
     end 
 
     def update 
-        # byebug
         song = Song.find_by(id: params[:id])
         song.update(image: params[:image])
         image_url = rails_blob_path(song.image)
         
         render json: {song: song, image_url: image_url}
+    end 
+
+    def delete_song_with_image
+        byebug
     end 
 end
