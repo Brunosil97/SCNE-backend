@@ -25,7 +25,8 @@ class SongsController < ApplicationController
         render json: {song: song, image_url: image_url}
     end 
 
-    def delete_song_with_image
-        byebug
+    def destroy
+        song = Song.find_by(id: params[:id])
+        song.destroy
     end 
 end
