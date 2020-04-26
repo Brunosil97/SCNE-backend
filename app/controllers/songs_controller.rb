@@ -28,5 +28,7 @@ class SongsController < ApplicationController
     def destroy
         song = Song.find_by(id: params[:id])
         song.destroy
+        songs = Song.all.with_attached_image
+        render json: songs, each_serializer: SongSerializer
     end 
 end
