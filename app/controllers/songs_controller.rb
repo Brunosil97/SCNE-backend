@@ -1,7 +1,5 @@
 class SongsController < ApplicationController
 
-    
-
     def index 
         songs = Song.all.with_attached_image
         render json: songs, each_serializer: SongSerializer
@@ -38,14 +36,6 @@ class SongsController < ApplicationController
         song.update(song_params)
         song.save 
         render json: song.to_json
-    end
-
-    def upload_image_and_attach_to_song
-
-    end
-
-    def update_song_image
-
     end
 
     private 
