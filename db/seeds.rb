@@ -15,7 +15,7 @@ song2.image.attach(io: File.open("./db/song_images/guava.jpg"), filename: "guava
 song3 = Song.create(title: "Jorja", artist: "SCNE", spotify: nil, soundcloud: "https://soundcloud.com/onthescne/jorja")
 song3.image.attach(io: File.open("./db/song_images/jorja.jpg"), filename: "jorja.jpg", content_type: "image/jpg")
 
-song4 = Song.create(title: "Jorja", artist: "SCNE", spotify: nil, soundcloud: "https://soundcloud.com/onthescne/nuh-ready-nuh-ready-scne-remix")
+song4 = Song.create(title: "Nuh Ready Nuh Ready", artist: "SCNE", spotify: nil, soundcloud: "https://soundcloud.com/onthescne/nuh-ready-nuh-ready-scne-remix")
 song4.image.attach(io: File.open("./db/song_images/nuh_ready.jpg"), filename: "nuh_ready.jpg", content_type: "image/jpg")
 
 song5 = Song.create(title: "I Don't Feel Love", artist: "SCNE", spotify: "https://open.spotify.com/album/3NGjQRlgY9t7JpgJMONfts", soundcloud: nil)
