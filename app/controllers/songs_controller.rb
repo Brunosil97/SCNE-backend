@@ -13,8 +13,11 @@ class SongsController < ApplicationController
 
     def create 
         song = Song.create(song_params)
-        render json: song.to_json
-       
+        if song.valid? 
+            render json: {song: song}
+        else 
+            render json: {messages: song.errors.full_messages}
+        end 
     end 
 
     def update
@@ -34,8 +37,12 @@ class SongsController < ApplicationController
     def update_song
         song = Song.find_by(id: params[:id])
         song.update(song_params)
-        song.save 
-        render json: song.to_json
+        if song.valid? 
+            song.save 
+            render json: {song: song}
+        else 
+            render json: {messages: song.errors.full_messages}
+        end 
     end
 
     private 

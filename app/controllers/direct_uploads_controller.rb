@@ -3,7 +3,6 @@ class DirectUploadsController < ActiveStorage::DirectUploadsController
 
     def create 
         blob = ActiveStorage::Blob.create_before_direct_upload!(blob_args)
-        songs = Song.all.with_attached_image
         render json: direct_upload_json(blob)
     end 
 
